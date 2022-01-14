@@ -31,7 +31,7 @@ while any(select_script[0::]) == True:
 
         # log into an APIC and create a directory object
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-        ls = cobra.mit.session.LoginSession('https://10.219.102.76', username, password)
+        ls = cobra.mit.session.LoginSession('https://sandboxapicdc.cisco.com/', username, password)
         md = cobra.mit.access.MoDirectory(ls)
         md.login()
 
@@ -130,14 +130,14 @@ while any(select_script[0::]) == True:
             newepgs = [int(i) for i in newepgslist]
         # log into an APIC and create a directory object
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-        ls = cobra.mit.session.LoginSession('https://10.219.102.76', username, password)
+        ls = cobra.mit.session.LoginSession('https://sandboxapicdc.cisco.com/', username, password)
         md = cobra.mit.access.MoDirectory(ls)
         md.login()
 
         # the top level object on which operations will be made
         polUni = cobra.model.pol.Uni('')
-        fvTenant = cobra.model.fv.Tenant(polUni, 'FSC_Austin')
-        fvAp = cobra.model.fv.Ap(fvTenant, 'FSC_Austin_AP')
+        fvTenant = cobra.model.fv.Tenant(polUni, 'Bobby_Tenant')
+        fvAp = cobra.model.fv.Ap(fvTenant, 'Bobby_Tenant_AP')
 
         # build the request using cobra syntax
         if len(epgs) > 0:
@@ -235,7 +235,7 @@ while any(select_script[0::]) == True:
         # Step 1 Add VPC Policy Group
         # log into an APIC and create a directory object
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-        ls = cobra.mit.session.LoginSession('https://10.219.102.76', user, password)
+        ls = cobra.mit.session.LoginSession('https://sandboxapicdc.cisco.com/', user, password)
         md = cobra.mit.access.MoDirectory(ls)
         md.login()
 
@@ -254,7 +254,7 @@ while any(select_script[0::]) == True:
         infraRsLldpIfPol = cobra.model.infra.RsLldpIfPol(infraAccBndlGrp, annotation='', tnLldpIfPolName='LLDP_Enable')
         infraRsCdpIfPol = cobra.model.infra.RsCdpIfPol(infraAccBndlGrp, annotation='', tnCdpIfPolName='CDP_Enable')
         infraRsAttEntP = cobra.model.infra.RsAttEntP(infraAccBndlGrp, annotation='',
-                                                     tDn='uni/infra/attentp-FSC_Austin_AAEP')
+                                                     tDn='uni/infra/attentp-Bobby_Tenant_AAEP')
 
         # commit the generated code to APIC
         myfunctions.NiceOutput('Deploying VPC Policy Group')
@@ -266,7 +266,7 @@ while any(select_script[0::]) == True:
         # log into an APIC and create a directory object
 
         # log into an APIC and create a directory object
-        ls = cobra.mit.session.LoginSession('https://10.219.102.76', user, password)
+        ls = cobra.mit.session.LoginSession('https://sandboxapicdc.cisco.com/', user, password)
         md = cobra.mit.access.MoDirectory(ls)
         md.login()
 
@@ -293,14 +293,14 @@ while any(select_script[0::]) == True:
         # Add EPGs tp VPC
         # log into an APIC and create a directory object
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-        ls = cobra.mit.session.LoginSession('https://10.219.102.76', user, password)
+        ls = cobra.mit.session.LoginSession('https://sandboxapicdc.cisco.com/', user, password)
         md = cobra.mit.access.MoDirectory(ls)
         md.login()
 
         # the top level object on which operations will be made
         polUni = cobra.model.pol.Uni('')
-        fvTenant = cobra.model.fv.Tenant(polUni, 'FSC_Austin')
-        fvAp = cobra.model.fv.Ap(fvTenant, 'FSC_Austin_AP')
+        fvTenant = cobra.model.fv.Tenant(polUni, 'Bobby_Tenant')
+        fvAp = cobra.model.fv.Ap(fvTenant, 'Bobby_Tenant_AP')
 
         # build the request using cobra syntax
         for epg in epgs:
@@ -329,7 +329,7 @@ while any(select_script[0::]) == True:
         # Step 1 Add VPC Policy Group
         # log into an APIC and create a directory object
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-        ls = cobra.mit.session.LoginSession('https://10.219.102.76', user, password)
+        ls = cobra.mit.session.LoginSession('https://sandboxapicdc.cisco.com/', user, password)
         md = cobra.mit.access.MoDirectory(ls)
         md.login()
 
@@ -348,7 +348,7 @@ while any(select_script[0::]) == True:
         infraRsLldpIfPol = cobra.model.infra.RsLldpIfPol(infraAccBndlGrp, annotation='', tnLldpIfPolName='LLDP_Enable')
         infraRsCdpIfPol = cobra.model.infra.RsCdpIfPol(infraAccBndlGrp, annotation='', tnCdpIfPolName='CDP_Enable')
         infraRsAttEntP = cobra.model.infra.RsAttEntP(infraAccBndlGrp, annotation='',
-                                                     tDn='uni/infra/attentp-FSC_Austin_AAEP')
+                                                     tDn='uni/infra/attentp-Bobby_Tenant_AAEP')
 
         # commit the generated code to APIC
         myfunctions.NiceOutput('Deploying VPC Policy Group')
@@ -358,7 +358,7 @@ while any(select_script[0::]) == True:
 
         # Step 2 Add Acces Port Selector to Leaf Interface Profile Lf103_104_IntProf
         # log into an APIC and create a directory object
-        ls = cobra.mit.session.LoginSession('https://10.219.102.76', user, password)
+        ls = cobra.mit.session.LoginSession('https://sandboxapicdc.cisco.com/', user, password)
         md = cobra.mit.access.MoDirectory(ls)
         md.login()
 
@@ -384,14 +384,14 @@ while any(select_script[0::]) == True:
         md.commit(c)
         # log into an APIC and create a directory object
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-        ls = cobra.mit.session.LoginSession('https://10.219.102.76', user, password)
+        ls = cobra.mit.session.LoginSession('https://sandboxapicdc.cisco.com/', user, password)
         md = cobra.mit.access.MoDirectory(ls)
         md.login()
 
         # the top level object on which operations will be made
         polUni = cobra.model.pol.Uni('')
-        fvTenant = cobra.model.fv.Tenant(polUni, 'FSC_Austin')
-        fvAp = cobra.model.fv.Ap(fvTenant, 'FSC_Austin_AP')
+        fvTenant = cobra.model.fv.Tenant(polUni, 'Bobby_Tenant')
+        fvAp = cobra.model.fv.Ap(fvTenant, 'Bobby_Tenant_AP')
 
         # build the request using cobra syntax
         for epg in epgs:
@@ -420,9 +420,9 @@ while any(select_script[0::]) == True:
         for item in vlanEpgBdNumber:
             print(f'You are deploying EPG VLAN{item}_EPG and BD VLAN{item}_BD')
         proceed = input('If you want to proceed press enter if you want to stop pres ctrl-C')
-        # Step 1. Deploy VLANS to FSC_Austin_DC_VLPool
+        # Step 1. Deploy VLANS to Bobby_Tenant_DC_VLPool
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-        ls = cobra.mit.session.LoginSession('https://10.219.102.76', user, password)
+        ls = cobra.mit.session.LoginSession('https://sandboxapicdc.cisco.com/', user, password)
         md = cobra.mit.access.MoDirectory(ls)
         md.login()
 
@@ -431,9 +431,9 @@ while any(select_script[0::]) == True:
         infraInfra = cobra.model.infra.Infra(polUni)
 
         # build the request using cobra syntax
-        myfunctions.NiceOutput('Deploying VLANS to FSC_Austin_DC_VLPool')
+        myfunctions.NiceOutput('Deploying VLANS to Bobby_Tenant_DC_VLPool')
         fvnsVlanInstP = cobra.model.fvns.VlanInstP(infraInfra, allocMode='static', annotation='', descr='',
-                                                   name='FSC_Austin_DC_VLPool', nameAlias='', ownerKey='', ownerTag='')
+                                                   name='Bobby_Tenant_DC_VLPool', nameAlias='', ownerKey='', ownerTag='')
         for vlan in vlanEpgBdNumber:
             fvnsEncapBlk = cobra.model.fvns.EncapBlk(fvnsVlanInstP, allocMode='static', annotation='', descr='',
                                                      from_=f'vlan-{vlan}', name='', nameAlias='', role='external',
@@ -443,19 +443,19 @@ while any(select_script[0::]) == True:
         c = cobra.mit.request.ConfigRequest()
         c.addMo(infraInfra)
         md.commit(c)
-        myfunctions.NiceOutput('Completed deploying VLANS to FSC_Austin_DC_VLPool')
+        myfunctions.NiceOutput('Completed deploying VLANS to Bobby_Tenant_DC_VLPool')
 
         # Step 2. Deploy BDs
-        ls = cobra.mit.session.LoginSession('https://10.219.102.76', user, password)
+        ls = cobra.mit.session.LoginSession('https://sandboxapicdc.cisco.com/', user, password)
         md = cobra.mit.access.MoDirectory(ls)
         md.login()
 
         # the top level object on which operations will be made
         polUni = cobra.model.pol.Uni('')
-        fvTenant = cobra.model.fv.Tenant(polUni, 'FSC_Austin')
+        fvTenant = cobra.model.fv.Tenant(polUni, 'Bobby_Tenant')
 
         # build the request using cobra syntax
-        myfunctions.NiceOutput('Deploying the BDs to the Non_DMZ vrf in the FSC_Austin tenant')
+        myfunctions.NiceOutput('Deploying the BDs to the Non_DMZ vrf in the Bobby_Tenant tenant')
         for bd in vlanEpgBdNumber:
             fvBD = cobra.model.fv.BD(fvTenant, OptimizeWanBandwidth='no', annotation='', arpFlood='yes', descr='',
                                      epClear='no',
@@ -477,20 +477,20 @@ while any(select_script[0::]) == True:
         c = cobra.mit.request.ConfigRequest()
         c.addMo(fvTenant)
         md.commit(c)
-        myfunctions.NiceOutput('Completed deploying the BDs to the Non_DMZ vrf in the FSC_Austin tenant')
+        myfunctions.NiceOutput('Completed deploying the BDs to the Non_DMZ vrf in the Bobby_Tenant tenant')
 
         # Step 3. Deploy EPGs
-        ls = cobra.mit.session.LoginSession('https://10.219.102.76', user, password)
+        ls = cobra.mit.session.LoginSession('https://sandboxapicdc.cisco.com/', user, password)
         md = cobra.mit.access.MoDirectory(ls)
         md.login()
 
         # the top level object on which operations will be made
         polUni = cobra.model.pol.Uni('')
-        fvTenant = cobra.model.fv.Tenant(polUni, 'FSC_Austin')
-        fvAp = cobra.model.fv.Ap(fvTenant, 'FSC_Austin_AP')
+        fvTenant = cobra.model.fv.Tenant(polUni, 'Bobby_Tenant')
+        fvAp = cobra.model.fv.Ap(fvTenant, 'Bobby_Tenant_AP')
 
         # build the request using cobra syntax
-        myfunctions.NiceOutput('Deploying the EPGss to the FSC_Austin_AP application profile')
+        myfunctions.NiceOutput('Deploying the EPGss to the Bobby_Tenant_AP application profile')
         for epg in vlanEpgBdNumber:
             fvAEPg = cobra.model.fv.AEPg(fvAp, annotation='', descr='', exceptionTag='', floodOnEncap='disabled',
                                          fwdCtrl='',
@@ -505,7 +505,7 @@ while any(select_script[0::]) == True:
         c = cobra.mit.request.ConfigRequest()
         c.addMo(fvAp)
         md.commit(c)
-        myfunctions.NiceOutput('Completed deploying the EPGss to the FSC_Austin_AP application profile')
+        myfunctions.NiceOutput('Completed deploying the EPGss to the Bobby_Tenant_AP application profile')
 
     # VPC to EPGs
     if select_script == 'Add VPC to EPGs':
@@ -523,14 +523,14 @@ while any(select_script[0::]) == True:
             newepgs = [int(i) for i in newepgslist]
         # log into an APIC and create a directory object
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-        ls = cobra.mit.session.LoginSession('https://10.219.102.76', user, password)
+        ls = cobra.mit.session.LoginSession('https://sandboxapicdc.cisco.com/', user, password)
         md = cobra.mit.access.MoDirectory(ls)
         md.login()
 
         # the top level object on which operations will be made
         polUni = cobra.model.pol.Uni('')
-        fvTenant = cobra.model.fv.Tenant(polUni, 'FSC_Austin')
-        fvAp = cobra.model.fv.Ap(fvTenant, 'FSC_Austin_AP')
+        fvTenant = cobra.model.fv.Tenant(polUni, 'Bobby_Tenant')
+        fvAp = cobra.model.fv.Ap(fvTenant, 'Bobby_Tenant_AP')
 
         # build the request using cobra syntax
         if len(existingepgs) > 0:
@@ -575,7 +575,7 @@ while any(select_script[0::]) == True:
             repeat = variables2[3]
             urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
             # log into an APIC and create a directory object
-            ls = cobra.mit.session.LoginSession('https://10.219.102.76', username, password)
+            ls = cobra.mit.session.LoginSession('https://sandboxapicdc.cisco.com/', username, password)
             md = cobra.mit.access.MoDirectory(ls)
             md.login()
 
@@ -608,7 +608,7 @@ while any(select_script[0::]) == True:
             for epg in epgs:
                 for port in ports:
                     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-                    url = "https://10.219.102.76/api/aaaLogin.json"
+                    url = "https://sandboxapicdc.cisco.com//api/aaaLogin.json"
                     payloadDict = {
                         "aaaUser": {
                             "attributes": {
@@ -628,8 +628,8 @@ while any(select_script[0::]) == True:
                     aaaLogin = imdataDict['aaaLogin']
                     attribute = aaaLogin['attributes']
                     token = attribute['token']
-                    payload = "{\"fvRsPathAtt\":{\"attributes\":{\"dn\":\"uni/tn-FSC_Austin/ap-FSC_Austin_AP/epg-VLAN" + epg + "_EPG/rspathAtt-[topology/pod-1/paths-" + node + "/pathep-[eth1/" + port + "]]\",\"status\":\"deleted\"},\"children\":[]}}"
-                    url = f"https://10.219.102.76/api/node/mo/uni/tn-FSC_Austin/ap-FSC_Austin_AP/epg-VLAN{epg}_EPG/rspathAtt-[topology/pod-1/paths-{node}/pathep-[eth1/{port}]].json"
+                    payload = "{\"fvRsPathAtt\":{\"attributes\":{\"dn\":\"uni/tn-Bobby_Tenant/ap-Bobby_Tenant_AP/epg-VLAN" + epg + "_EPG/rspathAtt-[topology/pod-1/paths-" + node + "/pathep-[eth1/" + port + "]]\",\"status\":\"deleted\"},\"children\":[]}}"
+                    url = f"https://sandboxapicdc.cisco.com//api/node/mo/uni/tn-Bobby_Tenant/ap-Bobby_Tenant_AP/epg-VLAN{epg}_EPG/rspathAtt-[topology/pod-1/paths-{node}/pathep-[eth1/{port}]].json"
                     header = {
                         'Cookie': f'APIC-cookie={token}',
                         'Authorization': 'Bearer' + ' ' + token
@@ -645,7 +645,7 @@ while any(select_script[0::]) == True:
         password = variables1[1]
         description = variables2
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-        url = "https://10.219.102.76/api/aaaLogin.json"
+        url = "https://sandboxapicdc.cisco.com//api/aaaLogin.json"
         payloadDict = {
             "aaaUser": {
                 "attributes": {
@@ -666,7 +666,7 @@ while any(select_script[0::]) == True:
         attribute = aaaLogin['attributes']
         token = attribute['token']
         payload = payload = "{\"configExportP\":{\"attributes\":{\"dn\":\"uni/fabric/configexp-defaultOneTime\",\"name\":\"defaultOneTime\",\"snapshot\":\"true\",\"targetDn\":\"\",\"adminSt\":\"triggered\",\"rn\":\"configexp-defaultOneTime\",\"status\":\"created,modified\",\"descr\":\"" + description + "\"},\"children\":[]}}"
-        url = "https://10.219.102.76/api/node/mo/uni/fabric/configexp-defaultOneTime.json"
+        url = "https://sandboxapicdc.cisco.com//api/node/mo/uni/fabric/configexp-defaultOneTime.json"
         header = {
             'Cookie': f'APIC-cookie={token}',
             'Authorization': 'Bearer' + ' ' + token
