@@ -4,8 +4,9 @@ import requests
 
 username = input('username: ')
 password = input('password: ')
+apic = 'sandboxapicdc.cisco.com'
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-url = "https://10.219.102.76/api/aaaLogin.json"
+url = f"https://{apic}/api/aaaLogin.json"
 payloadDict = {
     "aaaUser": {
         "attributes": {
@@ -25,6 +26,7 @@ imdataDict = imdata[0]
 aaaLogin = imdataDict['aaaLogin']
 attribute = aaaLogin['attributes']
 token = attribute['token']
+
 # Post url and payload below
 url = 'generic url'
 payload = 'generic payload'
